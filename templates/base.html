@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   </head>
   <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class"navbar-brand" href="{% url 'home' %}">SWE Discussion Board
+          <!--<img src="ASILogo.jpg" id="logo" class"d-inline-block mr-l" alt="Logo">-->
+        </a>
+      </div>
+    </nav>
+
     <div class="container">
       <ol class="breadcrumb my-4">
         {% block breadcrumb %}
