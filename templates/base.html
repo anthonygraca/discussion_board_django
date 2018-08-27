@@ -4,24 +4,28 @@
     <meta charset="utf-8">
     <title>{% block title %}Django Boards{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    {% block stylesheet %}{% endblock %}
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class"navbar-brand" href="{% url 'home' %}">Discussion Board
-          <!--<img src="images/ASILogo.jpg" id="logo" class"d-inline-block mr-l" alt="Logo">-->
-        </a>
-      </div>
-    </nav>
+    {% block body %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container">
+          <a class"navbar-brand" href="{% url 'home' %}">Discussion Board
+  <!--          {% load static %}
+            <img src="{% static "images/ASILogo.jpg" %}" id="logo" class"d-inline-block mr-l" alt="Logo">-->
+          </a>
+        </div>
+      </nav>
 
-    <div class="container">
-      <ol class="breadcrumb my-4">
-        {% block breadcrumb %}
+      <div class="container">
+        <ol class="breadcrumb my-4">
+          {% block breadcrumb %}
+          {% endblock %}
+        </ol>
+        {% block content %}
         {% endblock %}
-      </ol>
-      {% block content %}
-      {% endblock %}
-    </div>
+      </div>
+    {% endblock body %}
   </body>
 </html>
