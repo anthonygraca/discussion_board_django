@@ -11,12 +11,22 @@
     {% block body %}
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container">
-          <a class"navbar-brand" href="{% url 'home' %}">Discussion Board
-  <!--          {% load static %}
-            <img src="{% static "images/ASILogo.jpg" %}" id="logo" class"d-inline-block mr-l" alt="Logo">-->
-          </a>
-        </div>
-      </nav>
+            <a class"navbar-brand" href="{% url 'home' %}">Discussion Board</a>
+            <button class="navbar-toggler" type="button" data-toggle="collpase" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainMenu">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">{{ user.username }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+            <!--          {% load static %} -->
+<!--            <img src="{% static "images/ASILogo.jpg" %}" id="logo" class"d-inline-block mr-l" alt="Logo">-->
 
       <div class="container">
         <ol class="breadcrumb my-4">
