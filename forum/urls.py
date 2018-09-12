@@ -17,12 +17,15 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url 
 from django.contrib.auth import views as auth_views
+from django.views.generic.base import RedirectView
+from django.conf import settings
 
 from accounts import views as accounts_views
 from boards import views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
+    path('favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'favicon.ico')),
     url(r'^settings/password/$', auth_views.PasswordChangeView.as_view(template_name='password_change.html'),
         name='password_change'),
     url(r'^settings/password/done/$', auth_views.PasswordChangeDoneView.as_view(template_name='password_change_done.html'),
