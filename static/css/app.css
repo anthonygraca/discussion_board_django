@@ -5,3 +5,7 @@
   font-weight: 200;
   text-align: right;
 }
+
+.btn-outline-secondary{
+  border-color: #ae142a;
+}
