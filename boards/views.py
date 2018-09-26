@@ -5,6 +5,8 @@ from django.http import HttpResponse
 from .models import Board, Topic, Post
 from .forms import NewTopicForm, PostForm
 from django.db.models import Count
+from django.views.generic import UpdateView
+from django.utils import timezone
 
 def home(request):
   boards = Board.objects.all()
