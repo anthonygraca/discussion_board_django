@@ -5,8 +5,9 @@ from django.http import HttpResponse
 from .models import Board, Topic, Post
 from .forms import NewTopicForm, PostForm
 from django.db.models import Count
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView, CreateView
 from django.utils import timezone
+from django.urls import reverse_lazy
 
 def home(request):
   boards = Board.objects.all()
@@ -72,3 +73,9 @@ class PostUpdateView(UpdateView):
     post.updated_at = timezone.now()
     post.save()
     return redirect('topic_posts', pk=post.topic.board.pk, topic_pk=post.topic.pk)
+
+class NewPostView(CreateView):
+  model = Post
+  form_class = PostForm
+  success_url = reverse_lazy('post_list')
+  template_name = 'new_post.html'
