@@ -21,6 +21,7 @@ class BoardListView(ListView):
 def board_topics(request, pk):
   board = get_object_or_404(Board, pk=pk)
   queryset = board.topics.order_by('-last_updated').annotate(replies=Count('posts') - 1)
+  page = request.GET.get('page', 1)
 
   paginator = Paginator(queryset, 20)
 
