@@ -36,7 +36,7 @@ class Post(models.Model):
   updated_by = models.ForeignKey(User, null=True, related_name='+', on_delete=models.PROTECT)
 
   def get_message_as_markdown(self):
-    return mark_safe(markdown(self.message, safe_mode='escape))
+    return mark_safe(markdown(self.message, safe_mode='escape'))
 
   def __str__(self):
     truncated_message = Truncator(self.message)
